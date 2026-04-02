@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏥 MediSwift (Premium Edition)
+# 🏥 MediSwift 
 
 **A high-end, digital healthcare portal built with a modern monochromatic design system.**
 
