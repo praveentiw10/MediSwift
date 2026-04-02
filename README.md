@@ -37,6 +37,7 @@ The platform has been overhauled with a **High-Contrast Monochromatic Aesthetic*
 
 - **Frontend:** HTML5, Vanilla JavaScript, Premium CSS3 (Custom Glassmorphism)
 - **Backend:** Node.js, Express.js
+- **Database:** MongoDB
 - **Animations:** AOS (Animate On Scroll), ScrollReveal, CSS Keyframes
 - **Icons:** FontAwesome 6+, Bootstrap Icons, Boxicons
 
