@@ -1,0 +1,482 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  background: #091c1d; /* Fallback */
+  background: radial-gradient(circle at center, #0a2f30 0%, #030f10 100%);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating dynamic background orbs for ultimate glassmorphism feel */
+body::before, body::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(90px);
+  opacity: 0.6;
+}
+
+body::before {
+  top: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: #2cb5b9;
+  animation: float1 12s infinite alternate ease-in-out;
+}
+
+body::after {
+  bottom: -15%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: #007c8a;
+  animation: float2 14s infinite alternate ease-in-out;
+}
+
+@keyframes float1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, 80px) scale(1.1); }
+}
+
+@keyframes float2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-80px, -60px) scale(1.2); }
+}
+
+.top-left-corner {
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  z-index: 100;
+}
+
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.home-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.home-button svg {
+  fill: #3fbcc0;
+  width: 24px;
+  height: 24px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 38px;
+  color: #fff;
+  margin-bottom: 25px;
+  letter-spacing: -0.5px;
+}
+
+.overlay-panel h1 {
+  color: #fff;
+  font-size: 40px;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  margin: 20px 0 30px;
+  color: #eee;
+}
+
+a {
+  color: #6db1b2;
+  font-size: 13px;
+  text-decoration: none;
+  margin: 15px 0;
+  transition: 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255,255,255,0.3);
+}
+
+button {
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(135deg, #1aa3a8, #00878e);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 15px;
+  padding: 12px 60px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(26, 163, 168, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #22c3c9, #00a4ac);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(26, 163, 168, 0.5);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.ghost {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  box-shadow: none;
+}
+
+button.ghost:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  border-color: #fff;
+}
+
+form {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 14px 15px;
+  margin: 8px 0;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(63, 188, 192, 0.3);
+  border-color: #3fbcc0;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  padding-right: 40px; 
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-password svg {
+  height: 18px;
+  width: 18px;
+  transition: color 0.3s;
+}
+
+.toggle-password:hover svg {
+  color: #3fbcc0;
+}
+
+/* Glassmorphism Container */
+.container {
+  background: rgba(15, 30, 31, 0.65);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  width: 900px;
+  max-width: 100%;
+  min-height: 550px;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.login-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.container.right-panel-active .login-container {
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.register-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container.right-panel-active .register-container {
+  transform: translateX(100%);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 5;
+  animation: show 0.6s;
+}
+
+@keyframes show {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+  border-radius: 0 30px 30px 0;
+}
+
+.container.right-panel-active .overlay-container {
+  transform: translate(-100%);
+  border-radius: 30px 0 0 30px;
+}
+
+.overlay {
+  background-image: url('image.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* Adding a darker overlay to the image section */
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 47, 48, 0.4) 0%,
+    rgba(5, 14, 15, 0.9) 100%
+  );
+}
+
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.overlay-left {
+  transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+  transform: translateX(20%);
+}
+
+.social-container {
+  margin: 15px 0 0 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.social-container .social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08); /* slight glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+
+.social-container .social-icon:hover {
+  background-color: rgba(63, 188, 192, 0.5);
+  border-color: #3fbcc0;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(63, 188, 192, 0.4);
+}
+
+.terms-container {
+  margin-top: 5px;
+}
+
+.terms-container a {
+  color: #6db1b2;
+  font-size: 11px;
+  margin: 0 5px;
+  font-weight: 500;
+}
+
+.terms-container a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Base text changes */
+#registerMessage, #loginMessage {
+  margin-top: 15px;
+  color: #3fbcc0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Enhancing inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #183e3f inset !important;
+    -webkit-text-fill-color: white !important;
+    border: 1px solid #3fbcc0;
+}
+
+/* Adjustments for screens */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    min-height: 450px;
+    border-radius: 20px;
+  }
+  form {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 95%;
+    min-height: 550px;
+  }
+  .login-container, .register-container {
+    width: 100%;
+  }
+  .overlay-container {
+    display: none;
+  }
+  .container.right-panel-active .register-container {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <!-- Bootstrap Icons CDN link -->
+  <link rel="stylesheet" href="Css-Files/Rateus.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="Css-Files/popupfeedbacksctioncss.css">
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "o6kveYmOSDrs0l1Mg",
+      });
+    })();
+  </script>
+  <script src="https://kit.fontawesome.com/b08b6de27e.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <title>MediSwift</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ffffff;
+      --primary-dark: #d1d5db;
+      --primary-light: #f3f4f6;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif !important;
+      background: radial-gradient(circle at center, #1f2937 0%, #030712 100%) !important;
+      background-attachment: fixed !important;
+      color: #e2e8f0 !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Outfit', sans-serif !important;
+      font-weight: 700 !important;
+      color: #fff !important;
+      letter-spacing: -0.02em;
+    }
+
+    p,
+    span,
+    small {
+      color: #cbd5e1;
+    }
+
+    a {
+      text-decoration: none !important;
+      transition: color 0.3s;
+    }
+
+    section {
+      background-color: transparent !important;
+      padding: 40px 0 !important;
+    }
+
+    /* Cards & Glassmorphism elements */
+    .icon-box,
+    .count-box,
+    .member,
+    .info,
+    .form-group input,
+    .form-group textarea,
+    .testimonals-item {
+      background: rgba(255, 255, 255, 0.03) !important;
+      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px !important;
+      color: #e2e8f0 !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+
+    .icon-box:hover,
+    .count-box:hover,
+    .member:hover {
+      transform: translateY(-8px) !important;
+      box-shadow: 0 15px 30px rgba(255, 255, 255, 0.15) !important;
+      border-color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .icon-box h4 a {
+      color: #fff !important;
+    }
+
+    .icon-box h4 a:hover {
+      color: var(--primary) !important;
+    }
+
+    .icon-box {
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .icon-box::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), transparent);
+      opacity: 0;
+      transition: 0.3s;
+    }
+    .icon-box:hover::after {
+      opacity: 1;
+    }
+
+    .learn-more {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      opacity: 0.7;
+      transition: 0.3s ease;
+    }
+    .icon-box:hover .learn-more {
+      opacity: 1;
+      color: var(--primary);
+    }
+    .learn-more i {
+      font-size: 14px;
+      margin-left: 8px;
+      transition: 0.3s ease;
+    }
+    .icon-box:hover .learn-more i {
+      transform: translateX(5px);
+    }
+
+    .icon-box p {
+      color: #94a3b8 !important;
+    }
+
+    /* Global Overrides */
+    .section-title h2 {
+      color: #fff !important;
+      text-transform: capitalize !important;
+      font-size: 2.5rem !important;
+    }
+
+    .section-title p {
+      color: #94a3b8 !important;
+      font-size: 1.1rem !important;
+    }
+
+    .nav_link {
+      display: flex !important;
+    }
+
+    /* Restore flex for top nav */
+    .nav_link li a i {
+      color: #ffffff !important;
+      margin-right: 4px;
+    }
+
+    #hero-services-btn,
+    #hero-book-btn {
+      border-radius: 30px !important;
+    }
+
+    .counts i {
+      color: var(--primary) !important;
+      font-size: 2.5rem !important;
+      margin-bottom: 15px !important;
+    }
+
+    .counts .purecounter {
+      color: #fff !important;
+      font-size: 3rem !important;
+      font-weight: 800 !important;
+    }
+
+    .counts strong {
+      color: #ffffff !important;
+      font-size: 1.1rem !important;
+    }
+
+    .featured-services i {
+      color: var(--primary) !important;
+      font-size: 2rem !important;
+    }
+
+    footer,
+    .footer-wrapper {
+      background: #080c16 !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+      color: #cbd5e1 !important;
+    }
+
+    .footer-columns h4 {
+      color: #fff !important;
+    }
+
+    .footer-columns a {
+      color: #94a3b8 !important;
+    }
+
+    .footer-columns a:hover {
+      color: var(--primary) !important;
+    }
+
+    /* Buttons */
+    .btn1,
+    .btn-submit,
+    .doc-app {
+      background: linear-gradient(135deg, #ffffff, #d1d5db) !important;
+      border: none !important;
+      padding: 12px 24px !important;
+      border-radius: 8px !important;
+      color: #000 !important;
+      font-weight: 600 !important;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2) !important;
+    }
+  </style>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="index.css">
+  <link href="Css-Files/animate.min.css" rel="stylesheet">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="remixicon/remixicon.css" rel="stylesheet">
+  <link href="swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="patient-portal.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Google Fonts Link For Icons chatboxx -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="stylesheet" href="./Css-Files/aboutus.css" />
+  <link rel="stylesheet" href="./Css-Files/testimonial.css" />
+
+  <link rel="stylesheet" href="Css-Files/caduceus.css">
+  <!-- <script src="https://cdn.emailjs.com/dist/email.min.js"></script> -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script src="./js/emailvalidation.js"></script>
+  <link rel="stylesheet" href="global-navbar.css">
+  <link rel="stylesheet" href="premium-chat.css">
+  <link rel="stylesheet" href="premium-cards.css">
+  <!-- AOS Animation Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+
+<body>
+  <script src="js/caduceus.js"></script>
+  <div class="pre">
+    <div class="loader"></div>
+  </div>
+  <div id="caduceus-container">
+    <div class="rope"></div>
+    <img id="caduceus" src="img/2jghCPWR6g8S6w5Nv6bF6WCSHzJ.svg" alt="Caduceus">
+  </div>
+  <!-- ############# Header ############# -->
+  <header class="header_container nav-h"
+    style="background: rgba(3, 20, 22, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; left: 0;">
+    <a href="index.html" class="logo"
+      style="text-decoration: none; font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px;">
+      <img src="images/rd.png" alt="MediSwift" style="width: 32px; height: auto;">
+      MediSwift
+    </a>
+    <nav class="nav_menu">
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+      <div class="mobile-logo-text">MediSwift</div>
+      <ul class="nav_link vis-h">
+        <li><a href="index.html"><i class="bi bi-house-door-fill"></i> Home</a></li>
+        <li><a href="about.html"><i class="bi bi-info-circle-fill"></i> About</a></li>
+        <li><a href="news.html"><i class="bi bi-newspaper"></i> News</a></li>
+        <li><a href="dex.html"><i class="bi bi-gear"></i> Service</a></li>
+        <li><a href="portal.html"><i class="bi bi-person"></i> Patient Portal</a></li>
+        <li><a href="Html-Files/appointment.html"><i class="bi bi-person"></i> Appointment</a></li>
+        <li><a href="#doctors"><i class="bi bi-person-circle"></i> Doctor</a></li>
+        <li><a href="#contact"><i class="bi bi-telephone"></i> Contact us</a></li>
+        <li><a href="#feedback"><i class="bi bi-star"></i> Rate Us</a></li>
+        <li><a href="log/login.html"><i class="bi bi-box-arrow-right"></i> Sign in/Sign up</a></li>
+        <a href="Html-Files/Doctor Experience.html"><button class="btn1">Find a Doctor</button></a>
+      </ul>
+    </nav>
+  </header>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav_link');
+      navLinks.classList.toggle('active');
+      const hamburger = document.querySelector('.hamburger');
+      hamburger.classList.toggle('active');
+    }
+  </script>
+  <!-- ############# Hero Section ############# -->
+  <div class="hero-section" style="
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 60px 60px;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  ">
+    <!-- Animated background orbs -->
+    <div
+      style="position:absolute;top:10%;left:5%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.08),transparent);animation:pulse 6s ease-in-out infinite;pointer-events:none;">
+    </div>
+    <div
+      style="position:absolute;bottom:10%;right:10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.05),transparent);animation:pulse 8s ease-in-out infinite 2s;pointer-events:none;">
+    </div>
+
+    <!-- Hero Text Content -->
+    <div style="flex:1;max-width:600px;z-index:2;">
+      <div
+        style="display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(10px);border-radius:30px;padding:10px 24px;margin-bottom:24px;font-size:14px;color:#fff;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;box-shadow: 0 4px 15px rgba(255,255,255,0.05);">
+        <i class="fas fa-shield-alt" style="margin-right: 8px; color: #fff;"></i> Most Trusted Healthcare Platform
+      </div>
+      <h1 style="font-size:64px;font-weight:800;line-height:1.15;color:#fff;margin-bottom:20px;">
+        Welcome to <br /> <span style="
+          color: #ffffff; text-shadow: 0 0 15px rgba(255,255,255,0.6);
+        ">MediSwift!</span>
+      </h1>
+      <p style="font-size:20px;color:#d1d5db;font-weight:300;line-height:1.7;margin-bottom:35px;">
+        Your one-stop digital healthcare destination. Connect with top doctors, book appointments, and manage your
+        health - all in one place.
+      </p>
+
+      <!-- Stats row -->
+      <div style="display:flex;gap:30px;margin-bottom:40px;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:#fff;">95+</div>
+          <div style="font-size:12px;color:#d1d5db;text-transform:uppercase;letter-spacing:1px;">Doctors</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,0.3);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:#fff;">10K+</div>
+          <div style="font-size:12px;color:#d1d5db;text-transform:uppercase;letter-spacing:1px;">Patients</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,0.3);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:#fff;">4.9 <i class="fas fa-star"
+              style="font-size:20px; color:#fff; margin-left: 5px;"></i></div>
+          <div style="font-size:12px;color:#d1d5db;text-transform:uppercase;letter-spacing:1px;">Rating</div>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="Html-Files/appointment.html" style="text-decoration:none;">
+          <button id="hero-book-btn" style="
+            background: linear-gradient(135deg, #ffffff, #d1d5db);
+            color: #000;
+            padding: 16px 40px;
+            border-radius: 50px;
+            border: none;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+          " onmouseover="this.style.transform='translateY(-4px) scale(1.03)';this.style.boxShadow='0 15px 40px rgba(255,255,255,0.4)';"
+            onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 30px rgba(255,255,255,0.2)';">
+            <i class="far fa-calendar-check" style="margin-right:8px"></i> Book Appointment
+          </button>
+        </a>
+        <a href="#featured-services" style="text-decoration:none;">
+          <button id="hero-services-btn" style="
+            background: rgba(255,255,255,0.05);
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+          " onmouseover="this.style.background='#fff';this.style.color='#000';this.style.transform='translateY(-4px)';"
+            onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.color='#fff';this.style.transform='translateY(0)';">
+            <i class="fas fa-stethoscope" style="margin-right:8px"></i> Our Services
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Image -->
+    <div style="flex:1;display:flex;justify-content:center;align-items:center;z-index:2;position:relative;">
+      <div
+        style="position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.1);animation:heroRing 10s linear infinite;">
+      </div>
+      <div
+        style="position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,0.01);border:1px dashed rgba(255,255,255,0.2);animation:heroRing 7s linear infinite reverse;">
+      </div>
+      <img src="images/rd.png" alt="MediSwift Healthcare Cross Logo" style="
+        width: 380px;
+        filter: drop-shadow(0 20px 50px rgba(255,255,255,0.2)) grayscale(100%) brightness(1.5);
+        animation: floatUpDown 6s ease-in-out infinite;
+        position:relative;
+        z-index:3;
+      " />
+    </div>
+  </div>
+
+  <style>
+    @keyframes floatUpDown {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-25px);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes heroRing {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-section {
+        flex-direction: column !important;
+        padding: 100px 20px 40px !important;
+        text-align: center;
+      }
+
+      .hero-section h1 {
+        font-size: 36px !important;
+      }
+
+      .hero-section>div:last-child {
+        display: none !important;
+      }
+    }
+  </style>
+
+  <!-- End Hero Section -->
+  <main id="main">
+    <!-- ############ Featured Services Section ############ -->
+    <section id="featured-services" class="featured-services">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <a href="checkup.html" style="display: block; width: 100%; text-decoration: none;">
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon1"><i class="fas fa-heartbeat"></i></div>
+                <h4 class="title" style="color: #fff; margin-top: 15px;">Normal Checkup</h4>
+                <p class="description">Detect medical issues and identify risk factors before they become serious
+                  problems.</p>
+                <div class="learn-more">Learn More <i class="fas fa-arrow-right"></i></div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <a href="test.html" style="display: block; width: 100%; text-decoration: none;">
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon2"><i class="fas fa-dna"></i></div>
+                <h4 class="title" style="color: #fff; margin-top: 15px;">Blood Test</h4>
+                <p class="description">Get your tests done to look for signs of disease or agents that cause disease.</p>
+                <div class="learn-more">Learn More <i class="fas fa-arrow-right"></i></div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <a href="test.html" style="display: block; width: 100%; text-decoration: none;">
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon3"><i class="fas fa-temperature-high"></i></div>
+                <h4 class="title" style="color: #fff; margin-top: 15px;">Body Temperature</h4>
+                <p class="description">Monitor your body temperature range from 97&deg;F to 100.4&deg;F accurately at
+                  home.</p>
+                <div class="learn-more">Learn More <i class="fas fa-arrow-right"></i></div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <a href="medicine.html" style="display: block; width: 100%; text-decoration: none;">
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon4"><i class="fas fa-hand-holding-medical"></i></div>
+                <h4 class="title" style="color: #fff; margin-top: 15px;">Medicine Use</h4>
+                <p class="description">Know what to use, when to use and how to use medicines safely and effectively.</p>
+                <div class="learn-more">Learn More <i class="fas fa-arrow-right"></i></div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Featured Services Section -->
+    <!-- ################### About Section ################### -->
+    <section id="about" class="about">
+      <div id="about-us">
+        <h1 class="about-us-heading">About Us</h1>
+        <section class="about-service">
+          <div class="sec-1">
+            <img src="img/about.png" class="about-img">
+          </div>
+          <div class="sec-2">
+            <div class="a-1">
+              <div class="a-l">
+                <div class="h-icon"><svg width="36px" height="36px" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
+                      stroke="#2F7F81" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg></div>
+              </div>
+              <div class="a-r">
+                <div class="head-1">HEALTH CHECKUPS</div>
+                <div class="head-2">Bootcamps, personalised check-ups,newsletter, it's all here</div>
+              </div>
+            </div>
+            <div class="a-2">
+              <div class="b-l">
+                <div class="a-icon">
+                  <svg height="28px" width="28px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                    <g>
+                      <polygon class="st0" points="501.539,169.221 453.886,86.7 303.669,173.449 303.669,0 208.365,0 208.365,173.479 58.114,86.73 
+		10.461,169.261 160.674,255.99 10.501,342.71 58.154,425.231 208.365,338.482 208.365,512 303.669,512 303.669,338.542 
+		453.846,425.271 501.499,342.74 351.267,255.99 	" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="b-r">
+                <div class="head-1">EMERGENCY WARDS</div>
+                <div class="head-2">Avoid rush and get immediate medical assistance, the wards and vacancies.</div>
+              </div>
+            </div>
+            <div class="a-3">
+              <div class="c-l">
+                <div class="q-icon">
+                  <svg width="44px" height="44px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <title>question</title>
+                    <g id="Page-1" stroke="none" stroke-width="0.5" fill="none" fill-rule="evenodd">
+                      <g id="add" fill="#2F7F81" transform="translate(42.666667, 42.666667)">
+                        <path
+                          d="M291.76704,163.504 C291.76704,177.01952 288.33216,188.82176 281.479253,198.90112 C275.828267,207.371093 266.358187,216.549547 253.042987,226.434987 C245.378987,231.682347 240.331947,236.618667 237.916587,241.257813 C234.87744,246.90624 233.376213,255.371093 233.376213,266.666667 L190.710827,266.666667 C190.710827,249.530027 192.53504,237.027413 196.165333,229.162667 C200.394453,219.679573 209.571627,210.098773 223.686187,200.42048 C230.350293,195.374933 235.188693,190.2368 238.214827,184.994773 C241.839787,179.143253 243.664,172.49216 243.664,165.028693 C243.664,153.13024 240.125013,144.26304 233.070293,138.404907 C227.4336,134.177067 220.56768,132.059947 212.501333,132.059947 C199.39328,132.059947 189.911467,136.398507 184.065067,145.069013 C179.829333,151.518293 177.7056,159.787733 177.7056,169.868587 L177.7056,170.173227 L132.34368,170.173227 C132.34368,143.751253 140.703147,123.790507 157.43488,110.274773 C171.554773,98.9922133 189.007787,93.3346133 209.77344,93.3346133 C227.933653,93.3346133 243.865813,96.86848 257.571627,103.9232 C280.37504,115.62624 291.76704,135.494827 291.76704,163.504 Z M426.666667,213.333333 C426.666667,331.153707 331.153707,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 C331.153707,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 Z M384,213.333333 C384,119.226667 307.43872,42.6666667 213.333333,42.6666667 C119.227947,42.6666667 42.6666667,119.226667 42.6666667,213.333333 C42.6666667,307.43872 119.227947,384 213.333333,384 C307.43872,384 384,307.43872 384,213.333333 Z M213.332053,282.666667 C198.60416,282.666667 186.665387,294.60544 186.665387,309.333333 C186.665387,324.061227 198.60416,336 213.332053,336 C228.059947,336 239.99872,324.061227 239.99872,309.333333 C239.99872,294.60544 228.059947,282.666667 213.332053,282.666667 Z"
+                          id="Shape">
+                        </path>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="c-r">
+                <div class="head-1">SERVICES</div>
+                <div class="head-2">An apple a day won't keep MediSwift away. We are always here at your service,
+                  bringing
+                  to you the best facilities.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+    <script src="js/imageswap.js"></script>
+    <!-- End About Section -->
+    <!-- ################## Counts Section ################## -->
+    <section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
+        <div class="row no-gutters">
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" id="abc">
+            <div class="count-box">
+              <i class="fas fa-user-md"></i>
+              <span data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p><strong>Doctors Available</strong> <br><br>Doctors listed on our website.</p><br>
+              <a href="#doctors" class="count-a">Find out more &raquo;</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" id="abc">
+            <div class="count-box">
+              <i class="fas fa-bed"></i>
+              <span data-purecounter-start="0" data-purecounter-end="36" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p><strong>Beds Available</strong> <br><br>Nearby emergency beds available.</p><br>
+              <a href="" class="count-a">Find out more &raquo;</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" id="abc">
+            <div class="count-box">
+              <i class="fas fa-flask-vial"></i>
+              <span data-purecounter-start="0" data-purecounter-end="23" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p><strong>Nearest Labs</strong> <br><br>Test labs and clinics near you.</p><br>
+              <a href="" class="count-a">Find out more &raquo;</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" id="abc">
+            <div class="count-box">
+              <i class="fas fa-trophy"></i>
+              <span data-purecounter-start="0" data-purecounter-end="1250" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p><strong>User Reviews</strong><br> <br>Over 1K positive reviews.</p><br>
+              <a href="#test" class="count-a">Find out more &raquo;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+    <!-- #################### Services Section #################### -->
+    <center>
+      <section id="services" class="services">
+        <div class="section-title">
+          <h2 style="text-align:center;">Services</h2>
+          <p>Our services are for your good health. We are with you at every digital step.</p>
+        </div>
+        <div class="services container">
+          <div class="align-items-stretch ">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <h4><a href="/Html-Files/input.html">Clinics/Labs</a></h4>
+              <p>Locate the best healthcare facilities around you hassle-free.From routine check-ups to specialized
+                treatments, find the right clinic or lab that meets your needs. Our database is updated regularly to
+                ensure you have the most accurate information.</p>
+            </div>
+          </div>
+          <div class="align-items-stretch ">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-pills"></i></div>
+              <h4><a href="https://www.1mg.com">Pharmacy</a></h4>
+              <p>Get your prescribed medicines delivered at your doorstep.Our pharmacy service ensures you never miss a
+                dose with timely reminders and easy refill options. Enjoy the convenience of home delivery and exclusive
+                discounts on a wide range of medicines.</p>
+            </div>
+          </div>
+          <div class="align-items-stretch ">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-hospital-user"></i></div>
+              <h4><a href="">Daily Feed</a></h4>
+              <p>Access to heath benefits like bootcamps, vaccination drives and much more.Stay informed about the
+                latest
+                health trends, wellness tips, and upcoming events in your area. Participate in community health
+                initiatives and boost your wellbeing.
+              </p>
+            </div>
+          </div>
+          <div class="align-items-stretch ">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-dna"></i></div>
+              <h4><a href="./Html-Files/blood.html">Blood Bank</a></h4>
+              <p>Know the blood banks and blood groups available around you. No one should suffer in emergencies. Find
+                the
+                nearest blood donation centers, check blood availability, and get information on how to donate or
+                request
+                blood in urgent situations.</p>
+            </div>
+          </div>
+          <div class="align-items-stretch ">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-wheelchair"></i></div>
+              <h4><a href="">Disabled Person</a></h4>
+              <p>Convenient medical care is here. Wheelchair accessible hospitals and clinics, find all in one go.Access
+                resources and support tailored to the needs of individuals with disabilities, ensuring a seamless
+                healthcare experience for everyone.</p>
+            </div>
+          </div>
+          <div class="align-items-stretch">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-notes-medical"></i></div>
+              <h4><a href="https://www.medicalnewstoday.com/">Health Post</a></h4>
+              <p>Weekly, monthly, yearly or each day, however you like it! Subscribe to our health post for expert
+                articles, tips, and insights to help you make informed health decisions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </center>
+    <!-- End Services Section -->
+
+    <style>
+      /* Mobile Fixes for Responsive Layout */
+      @media (max-width: 768px) {
+        .row {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+
+        .container {
+          padding-left: 15px !important;
+          padding-right: 15px !important;
+          overflow-x: hidden !important;
+        }
+
+        .doctors .member {
+          flex-direction: column !important;
+          align-items: center !important;
+          text-align: center !important;
+        }
+
+        .doctors .pic {
+          margin-bottom: 20px !important;
+        }
+
+        .nav_link {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(3, 20, 22, 0.98);
+          backdrop-filter: blur(20px);
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 999;
+          gap: 25px !important;
+          padding: 40px 0 !important;
+        }
+
+        .nav_link.active {
+          left: 0;
+        }
+
+        .hamburger .line {
+          width: 25px;
+          height: 3px;
+          background-color: #fff;
+          margin: 5px auto;
+          transition: all 0.3s ease-in-out;
+          display: block;
+        }
+
+        .hamburger.active .line:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active .line:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .line:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .mobile-logo-text {
+          display: none !important;
+        }
+      }
+    </style>
+
+    <!-- ################# Doctors Section ################# -->
+    <section id="doctors" class="doctors">
+      <div class="section-title">
+        <h2>Doctors</h2>
+        <p>Don't compromise your health when we have listed the best doctors for you!</p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="img/doctors/1.png" class="img-fluid" alt=""
+                  style="width: 188px; height: 188px;"></div>
+              <div class="member-info">
+                <h4>Dermatologist</h4>
+                <br>
+                <div class="nxt-pg"><a href="Html-Files/derma.html"><button type="" class="doc-app">Appoint a
+                      Doctor</button></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="img/doctors/2.png" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Gynecologist</h4>
+                <br>
+                <div class="nxt-pg"><a href="Html-Files/gynaco.html"><button type="" class="doc-app">Appoint a
+                      Doctor</button></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="img/doctors/3.png" class="img-fluid" alt=""
+                  style="width: 188px; height: 188px;"></div>
+              <div class="member-info">
+                <h4>Cardiologist</h4>
+                <br>
+                <div class="nxt-pg"><a href="Html-Files/cardio.html"><button type="" class="doc-app">Appoint a
+                      Doctor</button></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="img/doctors/4.png" class="img-fluid" alt=""
+                  style="width: 188px; height: 188px;"></div>
+              <div class="member-info">
+                <h4>ENT</h4>
+                <br>
+                <div class="nxt-pg"><a href="Html-Files/ent.html"><button type="" class="doc-app">Appoint a
+                      Doctor</button></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="img/doctors/Image(13).png" class="img-fluid" alt=""
+                  style="width: 188px; height: 188px;"></div>
+              <div class="member-info">
+                <h4>Pediatrician</h4>
+                <br>
+                <div class="nxt-pg"><a href="Html-Files/pediatrition.html"><button type="" class="doc-app">Appoint a
+                      Doctor</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Doctors Section -->
+    <!-- ################# Contact Section ################# -->
+    <!-- clicking on "contact us" directs to this section -->
+    <section id="contact" class="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Located your appointment. Feel free to give us feedback and help us improve our digital med care.</p>
+      </div>
+      <div class="container">
+        <!--Google map-->
+        <div class="mapouter">
+          <div class="gmap_canvas">
+            <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.8172166548!2d73.10375620000001!3d22.3221376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8ab91c2518f%3A0x6b44293997191295!2sVadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1711953000000!5m2!1sen!2sin"></iframe>
+            <a href="https://www.fnfgo.com/">FNF Mods</a>
+          </div>
+        </div>
+        <br>
+        <div class="row mt-2"
+          style="display: flex; flex-direction: row; align-items: stretch; justify-content: space-around;">
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="fa fa-location-dot"></i>
+                <h4>Location:</h4>
+                <p><a href="https://www.google.com/maps/search/?api=1&query=Vadodara,Gujarat" target="_blank">Vadodara,
+                    Gujarat</a></p>
+              </div>
+              <div class="email">
+                <i class="fa fa-envelope"></i>
+                <h4>Email:</h4>
+                <p><a href="mailto:MediSwift@mail.com">MediSwift@mail.com</a></p>
+              </div>
+              <div class="phone">
+                <i class="fa fa-phone"></i>
+                <h4>Call:</h4>
+                <p><a href="tel:+91 99099 12345">+91 99099 12345</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 mt-5 mt-lg-0">
+            <form id="contactForm" action="" role="form" class="php-email-form">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control enhanced-input" id="name" placeholder=" Your Name"
+                  required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="email" class="form-control enhanced-input" name="email" id="email"
+                  placeholder=" Your Email" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control enhanced-input" name="subject" id="subject"
+                  placeholder=" Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control enhanced-textarea" name="message" rows="5" placeholder="Message"
+                  required></textarea>
+              </div>
+              <div class="text-center"><button type="submit" class="btn-submit">Send Message</button></div>
+            </form>
+            <div id="confirmationMessage" class="confirmation-message">
+              Thank you for your message. We will get back to you shortly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/contactpopupmessage.js"></script>
+    <!-- End Contact Section -->
+    <!-- testimonial section -->
+    <section id="test" class="testimonals">
+      <h2 class="h2 section-title has-underline"
+        style="margin-top: 15px; align-items: center; justify-content: center; display: flex;">
+        What our Patients Say
+      </h2>
+      <div class="testimonals-content">
+        <div class="swiper testimonals-slider js-testimonals-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide testimonals-item">
+              <div class="info">
+                <img src="./images/profile1.webp" alt="">
+                <div class="text-box">
+                  <h3 class="name">Dinesh</h3>
+                  <span class="job">Akota, Vadodara</span>
+                </div>
+              </div>
+              <p>This website is an excellent platform for providing healthcare facilities to users. It offers
+                information about hospital availability, including bed availability, the total number of patients, and
+                more.</p>
+              <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+            <div class="swiper-slide testimonals-item">
+              <div class="info">
+                <img src="./images/profile2.webp" alt="">
+                <div class="text-box">
+                  <h3 class="name">Virat</h3>
+                  <span class="job">Alkapuri, Vadodara</span>
+                </div>
+              </div>
+              <p>Using this platform, I could easily prebook my OPD appointments. It saved me a lot of time and effort.
+                Highly recommended!</p>
+              <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+            <div class="swiper-slide testimonals-item">
+              <div class="info">
+                <img src="./images/profile3.webp" alt="">
+                <div class="text-box">
+                  <h3 class="name">Smrithi</h3>
+                  <span class="job">Gotri, Vadodara</span>
+                </div>
+              </div>
+              <p>The website's feature to check the availability of blood groups in hospitals is very helpful. It made
+                my search much easier and quicker.</p>
+              <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+            <div class="swiper-slide testimonals-item">
+              <div class="info">
+                <img src="./images/profile4.webp" alt="">
+                <div class="text-box">
+                  <h3 class="name">John</h3>
+                  <span class="job">Sayajigunj, Vadodara</span>
+                </div>
+              </div>
+              <p>The detailed information about hospital facilities and patient management is commendable. This platform
+                is a must-use for everyone.</p>
+              <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+            <div class="swiper-slide testimonals-item">
+              <div class="info">
+                <img src="./images/profile5.webp" alt="">
+                <div class="text-box">
+                  <h3 class="name">Shikha</h3>
+                  <span class="job">Manjalpur, Vadodara</span>
+                </div>
+              </div>
+              <p>Excellent service and very user-friendly interface. It helped me find the right hospital and prebook my
+                appointment without any hassle.</p>
+              <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination js-testimonals-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- testimonial section -->
+    <!--POPUP Feedback System-->
+    <div id="overlay" class="overlay"></div>
+
+    <div id="feedback-wrapper" class="feedback-wrapper">
+      <div class="feedback-form">
+        <span class="close-btn" onclick="closeFeedback()">&times;</span>
+        <h2>We'd Love Your Feedback!</h2>
+        <p>Let us know how we're doing and how we can improve. <br /> <span
+            style="color: hwb(181 21% 19%);"><strong>MediSwift</strong> Healthcare</p>
+        <p>This is a confused face emoji: &#x1f615;</p>
+        <div>
+
+
+          <label for="rating" class="rate-us"> <strong>Please Rate us below</strong></label>
+
+          <div class="container" style="text-align: center;">
+            <div class="emoji-gifs">
+              <img src="emoji1.gif" alt="Emoji 1" class="emoji-gif" data-emoji="&#x1F621;" data-gif-src="emoji1.gif"
+                width="50px" height="50px">
+              <img src="emoji2.gif" alt="Emoji 2" class="emoji-gif" data-emoji="â˜¹ï¸" data-gif-src="emoji2.gif"
+                width="50px" height="50px">
+              <img src="emoji3.gif" alt="Emoji 3" class="emoji-gif" data-emoji="ðŸ˜" data-gif-src="emoji3.gif"
+                width="50px" height="50px">
+              <img src="emoji5.gif" alt="Emoji 4" class="emoji-gif" data-emoji="&#x1F60A;" data-gif-src="emoji5.gif"
+                width="50px" height="50px">
+              <img src="emoji4.gif" alt="Emoji 5" class="emoji-gif" data-emoji="ðŸ˜" data-gif-src="emoji4.gif"
+                width="50px" height="50px">
+            </div>
+            <div class="selected-emoji" style="text-align: center;">
+              <p>You selected: <span id="selected-emoji"></span></p>
+              <img id="selected-gif" src="" alt="Selected GIF" width="50px" height="50px">
+
+            </div>
+          </div>
+          <form id="feedback-form" onsubmit="handleSubmit(event)">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <label for="feedback">Your Feedback</label>
+            <textarea id="feedback" rows="5" placeholder="Let us know how we can improve..." required></textarea>
+            <button type="submit" class="btn" style="width: 11rem;margin-left: 100px;">Submit Feedback</button>
+          </form>
+        </div>
+      </div>
+      <div id="feedback-message">Thanks for the feedback! â¤ï¸ </div>
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <h2>Thank you for your Feedback! <i class="fas fa-heart" style="color:#00C896"></i></h2>
+          <div class="popup-icon">
+            <img src="/Feedback Tick.png" width="84" alt="âœ”ï¸">
+          </div>
+          <p>Your feedback has been received.<br> We appreciate the input you provide.</p>
+          <button class="popup-button" onclick="closePopup()"><a class="active" aria-current="page">Back to
+              Home</a></button>
+        </div>
+      </div>
+      <br>
+
+      <link rel="stylesheet" href="./assets/css/visitors.css">
+      <div class="visitor-counter">
+        <div>Visitor</div>
+        <div class="website-counter"></div>
+      </div>
+      <script src="./assets/js/visitors.js"></script>
+      <script src="js/feedbackmessage.js"></script>
+  </main><!-- End #main -->
+  <!-- ############### Footer ############### -->
+  <footer>
+    <div class="footer-wrapper">
+      <div class="footer-columns">
+        <div class="other-columns">
+          <section>
+            <h4>Quick Links</h4><br>
+            <ul class="links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="index.html#contact">Contact Us</a></li>
+              <li><a href="dex.html">Services</a></li>
+              <li><a href="#doctors">Doctors</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+            </ul>
+          </section>
+          <section>
+            <h4>Explore</h4><br>
+            <ul class="links">
+              <li><a href="Html-Files/appointment.html">Appointment</a></li>
+              <li><a href="portal.html">Patient Portal</a></li>
+              <li><a href="log/login.html">Login account</a></li>
+              <li><a href="helpline.html">Helplines</a></li>
+              <li><a href="index.html#contact">Location</a></li>
+            </ul>
+          </section>
+          <section>
+            <h4>Legal</h4><br>
+            <ul class="links">
+              <li><a href="Html-Files/customer_agreement.html">Customer Agreement</a></li>
+              <li><a href="Html-Files/privacy_policy_page.html">Privacy Policy</a></li>
+              <li><a href="Html-Files/terms_and_conditions.html">Terms and Conditions</a></li>
+              <li><a href="#">GDPR</a></li>
+
+
+            </ul>
+          </section>
+          <section class="footer-col">
+            <div>
+              <h4>MediSwift Newsletter</h4><br>
+              <p>
+                Subscribe to our newsletter for a weekly dose
+                of news, updates, helpful tips, and
+                exclusive offers.
+              </p>
+            </div>
+            <form action="#" class="subscribe-form" id="subscribeForm">
+              <input type="email" id="emailInput" placeholder="Your email" required>
+              <button type="submit" id="subscribeButton" class="b">SUBSCRIBE</button>
+            </form>
+          </section>
+          <div id="subscribeBanner">
+            <p>Thanks for subscribing!</p>
+          </div>
+          <script src="js/footersubcribejs.js"></script>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-wrapper">
+        <small id="ss">&copy; <span id="year"></span><span> MediSwift</span>&nbsp;| All Rights
+          Reserved Made with ❤️ by MediSwift</small>
+        <div class="social-wrapper">
+          <div class="social-links">
+            <div style="margin-left: 300px;font-family: sans-serif;"><i>Follow&nbsp;Us&nbsp;:&nbsp;</i></div>
+            <div id="insta">
+              <a href="https://www.instagram.com" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+            <div id="twit">
+              <a href="https://www.twitter.com" target="_blank">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+            </div>
+            <div id="git">
+              <a href="https://github.com/Anishkagupta04/MediSwift-HEALTHCARE-WEBSITE-" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <div id="linkd">
+              <a href="https://www.linkedin.com" target="_blank">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+            <div id="fb"><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+            <div id="phn"> <a href="+91 99099 12345" title="+91 99099 12345" target="_blank"><i
+                  class="fa-solid fa-phone"></i></a></div>
+            <div id="mail1"><a href="info@MediSwift.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div id="back-to-top-container">
+    <div class="circle">
+      <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+        <path
+          d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+      </svg>
+    </div>
+  </div>
+  <!--JS FILES-->
+  <script src="script.js"></script>
+  <script src="js/backtotopjs.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="js/testimonalslider.js"></script>
+  <script src="js/phonejs.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="glightbox/js/glightbox.min.js"></script>
+  <script src="php-email-form/validate.js"></script>
+  <script src="purecounter/purecounter.js"></script>
+  <script src="swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+  <script src="js/main.js"></script>
+  <script src="patient-portal.js"></script>
+  <script src="swiper-bundle.min.js"></script>
+  <script src="https://mediafiles.botpress.cloud/b1d766f9-2fd0-4a60-96bb-fc1f494d156c/webchat/config.js" defer></script>
+  <script src="js/chatbotjs.js"></script>
+  <script src="https://www.chatbase.co/embed.min.js" chatbotId="xjRGZgxJziSoHQ1T1twl6" domain="www.chatbase.co" defer>
+  </script>
+  <script src="js/revealelementsonscrolljsfor_index_html.js"></script>
+  <script src="js/loaderjs.js"></script>
+  <script src="js/progressbar_and_header.js"></script>
+  <div id="progressBar"></div>
+  <script src="js/patientportal_loginjs.js"></script>
+  <script src="js/popupfeedback.js"></script>
+  <script src="premium-chat.js"></script>
+  <!-- Premium Cards Cursor Animation Engine -->
+  <script src="premium-cards.js"></script>
+  <!-- Initialize AOS Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({
+        duration: 1200,
+        easing: 'ease-in-out-cubic',
+        once: true,
+        offset: 100
+      });
+    });
+  </script>
+</body>

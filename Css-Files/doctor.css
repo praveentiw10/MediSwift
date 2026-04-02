@@ -1,0 +1,392 @@
+/*Cardio , Derma , ent ,gynaco & doc HTML CSS - PREMIUM UPGRADE*/
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10000;
+    background: rgba(15, 30, 31, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(63, 188, 192, 0.3);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.home-button:before {
+    content: "← ";
+}
+
+.home-button:hover {
+    background: #3fbcc0;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(63, 188, 192, 0.5);
+}
+
+#progressBar {
+    position: fixed;
+    top: 0; /* Changed from 85px to top */
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background-color: #3fbcc0;
+    z-index: 10000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Remove awkward centering and allow normal document flow below navbar */
+body {
+    min-height: 100vh;
+    padding-top: 80px; /* Space for the floating home button */
+    padding-bottom: 50px;
+    background: transparent !important;
+}
+
+/* Parent container for swiper cards */
+.slide-container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+    background: rgba(15, 30, 31, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(63, 188, 192, 0.2);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.slide-content {
+    margin: 0;
+    overflow: hidden;
+    background: transparent;
+    border-radius: 25px;
+}
+
+/* Inner doctor card styling */
+.card {
+    border-radius: 25px !important;
+    background: rgba(8, 20, 21, 0.8) !important;
+    backdrop-filter: blur(25px) !important;
+    border: 1px solid rgba(63, 188, 192, 0.3) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px !important;
+    background: rgba(0,0,0,0.3) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.header-buttons button {
+    background: #3fbcc0;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 6px 15px;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(63, 188, 192, 0.3);
+}
+
+.header-buttons button:hover {
+    background: #00878e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(63, 188, 192, 0.5);
+}
+
+.calendar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.4) !important;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+}
+
+.nav-button {
+    background: linear-gradient(135deg, #1aa3a8, #00878e);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 18px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(26, 163, 168, 0.3);
+}
+
+.nav-button:hover {
+    transform: scale(1.05);
+}
+
+.month {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.dates {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+}
+
+@media (max-width: 900px) {
+    .dates {
+        flex-wrap: wrap;
+    }
+}
+
+.date1, .date2, .date3, .date4, .date5, .date6, .date7, .date8, .date9, .date10, .date11, .date12, .date {
+    background: rgba(255,255,255,0.05);
+    padding: 12px 18px;
+    cursor: pointer;
+    border: 1px solid rgba(63, 188, 192, 0.3);
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.date1:hover, .date2:hover, .date:hover, .date1:active {
+    background: #3fbcc0;
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(63, 188, 192, 0.4);
+    color: #000;
+}
+
+.schedule {
+    padding: 20px;
+}
+
+.consultation {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid rgba(63, 188, 192, 0.2);
+    border-radius: 15px;
+    background: rgba(0,0,0,0.3) !important;
+    color: white;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.consultation h3 {
+    margin: 0;
+    color: #8ce6e9;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.consultation p {
+    margin: 8px 0;
+    color: #dcdcdc;
+}
+
+.consult-button {
+    background: #3fbcc0;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: inline-block;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.consult-button:hover {
+    background: #00878e;
+    transform: scale(1.05);
+}
+
+/* Footer Bottom Navigation Buttons */
+footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 25px;
+    background: rgba(0,0,0,0.4) !important;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.btns {
+    width: auto !important;
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 18px;
+    border-radius: 20px;
+    background: rgba(63, 188, 192, 0.15);
+    border: 1px solid #3fbcc0;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btns:hover {
+    background: #3fbcc0;
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(63, 188, 192, 0.4);
+}
+
+.image-content, .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.image-content {
+    position: relative;
+    padding: 40px 0 25px 0;
+}
+
+.overlay {
+    border-radius: 25px 25px 0 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(63, 188, 192, 0.6), rgba(0, 135, 142, 0.3));
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+}
+
+.overlay::before, .overlay::after {
+    display: none;
+}
+
+.card-image {
+    position: relative;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    background: transparent;
+    padding: 6px;
+    z-index: 10;
+}
+
+.card-image .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #3fbcc0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+.discription, .description {
+    font-size: 16px;
+    color: #8ce6e9;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.button {
+    border: none;
+    font-size: 16px;
+    color: #fff !important;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #1aa3a8, #00878e);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(26, 163, 168, 0.4);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(26, 163, 168, 0.6);
+}
+
+#topbar1 {
+    position: relative !important;
+    background: transparent !important;
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    background: rgba(255,255,255,0.05);
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(63, 188, 192, 0.3);
+}
+
+.social-links a svg {
+    fill: #3fbcc0 !important;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: #3fbcc0;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(63, 188, 192, 0.5);
+}
+
+.social-links a:hover svg {
+    fill: #000 !important;
+}
+
+.swiper-navBtn {
+    color: #3fbcc0;
+    transition: 0.3s;
+}
+.swiper-navBtn:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+.swiper-pagination-bullet {
+    background: #3fbcc0 !important;
+    opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}

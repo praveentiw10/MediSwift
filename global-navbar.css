@@ -1,0 +1,261 @@
+
+/* --- UNIFIED MEDISWIFT NAVBAR STYLES --- */
+body {
+  background: radial-gradient(circle at center, #0a2f30 0%, #030f10 100%) !important;
+  background-attachment: fixed !important;
+  color: #f0f0f0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body::before, body::after {
+  content: "" !important;
+  position: fixed !important;
+  border-radius: 50% !important;
+  z-index: -999 !important;
+  filter: blur(100px) !important;
+  opacity: 0.5 !important;
+  pointer-events: none !important;
+}
+
+body::before {
+  top: -10% !important;
+  left: -10% !important;
+  width: 50vw !important;
+  height: 50vh !important;
+  background: #2cb5b9 !important;
+  animation: floatOrb1 15s infinite alternate ease-in-out !important;
+}
+
+body::after {
+  bottom: -10% !important;
+  right: -10% !important;
+  width: 60vw !important;
+  height: 60vh !important;
+  background: #007c8a !important;
+  animation: floatOrb2 18s infinite alternate ease-in-out !important;
+}
+
+@keyframes floatOrb1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, 100px) scale(1.1); }
+}
+
+@keyframes floatOrb2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-100px, -80px) scale(1.2); }
+}
+
+.header_container {
+  background: rgba(15, 30, 31, 0.85) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 85px !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  padding: 0 40px !important;
+  z-index: 9999 !important;
+  transition: all 0.3s ease !important;
+  box-sizing: border-box !important;
+}
+
+.nav_menu {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.nav_link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-wrap: nowrap !important;
+}
+
+.nav_link li {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav_link li a {
+  transition: all 0.3s ease 0s !important;
+  color: white !important;
+  text-decoration: none !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  font-family: "Poppins", sans-serif !important;
+  white-space: nowrap !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.nav_link li a:hover {
+  color: #3fbcc0 !important;
+}
+
+.nav_link .btn1 {
+  background: linear-gradient(135deg, #1aa3a8, #00878e) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 8px 18px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  font-family: "Poppins", sans-serif !important;
+  white-space: nowrap !important;
+  margin-left: 10px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease-in-out !important;
+  box-shadow: 0 4px 15px rgba(26, 163, 168, 0.3) !important;
+}
+
+.nav_link .btn1:hover {
+  background: linear-gradient(135deg, #22c3c9, #00a4ac) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(26, 163, 168, 0.4) !important;
+}
+
+.mobile-logo-text {
+  display: none !important;
+  color: #3fbcc0 !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  font-family: "Poppins", sans-serif !important;
+  margin-left: 10px !important;
+}
+
+.img {
+  display: flex !important;
+  align-items: center !important; 
+}
+
+.img img, #rd-logo {
+  height: 60px !important;
+  width: auto !important;
+  display: block !important;
+}
+
+.hamburger {
+  display: none !important;
+  cursor: pointer !important;
+}
+
+.hamburger .line {
+  width: 25px !important;
+  height: 3px !important;
+  background-color: white !important;
+  margin: 4px 0 !important;
+}
+
+@media (max-width: 1100px) {
+  .header_container {
+    padding: 0 20px !important;
+  }
+  .nav_link {
+    gap: 8px !important;
+  }
+  .nav_link li a {
+    font-size: 13px !important;
+  }
+  .nav_link .btn1 {
+    font-size: 13px !important;
+    padding: 6px 14px !important;
+    margin-left: 5px !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .header_container {
+    height: 70px !important;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+  }
+  .hamburger {
+    display: block !important;
+  }
+  .mobile-logo-text {
+    display: block !important;
+  }
+  .img {
+    display: none !important;
+  }
+  .nav_link {
+    display: none !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    background: rgba(15, 30, 31, 0.95) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    padding: 20px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  .nav_link.active {
+    display: flex !important;
+  }
+  .nav_link li {
+    margin: 10px 0 !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .nav_link li a {
+    font-size: 16px !important;
+  }
+}
+
+/* --- UNIVERSAL PREMIUM CARD SYSTEM --- */
+.container, section, main, header, footer { background: transparent !important; }
+.featured-services .icon-box, .services .icon-box, .about-box, .counts .count-box, 
+.doctors .member, .pricing .box, .faq .faq-list li, section .box, .card, .testimonial-item {
+  background: rgba(15, 30, 31, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(63, 188, 192, 0.2) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  overflow: hidden !important;
+  color: #fff !important;
+}
+
+.featured-services .icon-box:hover, .services .icon-box:hover, .doctors .member:hover, .pricing .box:hover, .faq .faq-list li:hover, .testimonial-item:hover {
+  transform: translateY(-10px) !important;
+  border-color: rgba(63, 188, 192, 0.7) !important;
+  box-shadow: 0 15px 40px rgba(63, 188, 192, 0.3) !important;
+  background: rgba(20, 45, 46, 0.85) !important;
+}
+
+h1, h2, h3, h4, h5, h6, .title a, p, span, li, a {
+  color: #fff !important;
+}
+
+.section-title h2 { color: #3fbcc0 !important; }
+.section-title h2::after { background: #3fbcc0 !important; }
+
+/* Fontawesome/Icons glow */
+i.bx, i.bi, i.fas, i.fab {
+  color: #3fbcc0 !important;
+}
+
+/* Make image overlay clean */
+img {
+  border-radius: 10px;
+}

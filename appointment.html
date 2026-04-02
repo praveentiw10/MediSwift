@@ -1,0 +1,1039 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment | MediSwift</title>
+  <meta name="description"
+    content="Book a doctor appointment quickly and easily with MediSwift. Choose your specialist, date, and time in minutes.">
+
+  <!-- Icons & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="index.css">
+
+  <style>
+    :root {
+      --teal: #3fbcc0;
+      --dark: #022a2d;
+      --darker: #011212;
+      --mid: #065e63;
+      --light: #e0f7f8;
+      --white: #fff;
+      --accent: #55a5ea;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--darker);
+      color: var(--white);
+      min-height: 100vh;
+    }
+
+    /* ========== SCROLLBAR ========== */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--teal);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--darker);
+    }
+
+    /* ========== NAVBAR (shared) ========== */
+    .header_container {
+      background: rgba(2, 42, 45, 0.95);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 75px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(63, 188, 192, 0.2);
+    }
+
+    .img {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .img img {
+      width: 48px;
+      height: auto;
+    }
+
+    .img span {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.5px;
+    }
+
+    .nav_menu {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav_link {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 4px;
+    }
+
+    .nav_link li a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 6px 9px;
+      border-radius: 6px;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav_link li a:hover,
+    .nav_link li a.active {
+      color: var(--teal);
+      background: rgba(63, 188, 192, 0.1);
+    }
+
+    .btn1 {
+      background: linear-gradient(135deg, var(--teal), #29898c);
+      color: #fff;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .btn1:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(63, 188, 192, 0.4);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger .line {
+      width: 26px;
+      height: 3px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .mobile-logo-text {
+      display: none;
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-logo-text {
+        display: block;
+      }
+
+      .nav_link {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 75px;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        padding: 20px;
+        gap: 4px;
+        border-bottom: 1px solid rgba(63, 188, 192, 0.2);
+      }
+
+      .nav_link.active {
+        display: flex;
+      }
+    }
+
+    /* ========== HERO BANNER ========== */
+    .appt-hero {
+      padding-top: 75px;
+      background: linear-gradient(160deg, var(--dark) 0%, #043939 50%, #011a1a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .appt-hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(63, 188, 192, 0.12) 0%, transparent 70%);
+      top: -150px;
+      right: -150px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(63, 188, 192, 0.15);
+      border: 1px solid rgba(63, 188, 192, 0.35);
+      color: var(--teal);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .hero-text h1 span {
+      color: var(--teal);
+    }
+
+    .hero-text p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--teal);
+    }
+
+    .stat-lbl {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 2px;
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hero-img-wrap img {
+      width: 260px;
+      border-radius: 24px;
+      opacity: 0.85;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 28px;
+      border: 2px solid rgba(63, 188, 192, 0.3);
+      pointer-events: none;
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    .main-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ========== FORM CARD ========== */
+    .form-card {
+      background: linear-gradient(145deg, rgba(6, 94, 99, 0.5), rgba(2, 42, 45, 0.8));
+      border: 1px solid rgba(63, 188, 192, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-card h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .form-card>p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.88rem;
+      margin-bottom: 32px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: rgba(224, 247, 248, 0.8);
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .form-group label span {
+      color: #e05c5c;
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(63, 188, 192, 0.25);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      transition: all 0.25s;
+      outline: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+      background: rgba(63, 188, 192, 0.08);
+      box-shadow: 0 0 0 3px rgba(63, 188, 192, 0.15);
+    }
+
+    .form-group select option {
+      background: #022a2d;
+      color: #fff;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* Doctor specialty grid */
+    .specialty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .spec-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(63, 188, 192, 0.2);
+      border-radius: 10px;
+      padding: 12px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.78rem;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .spec-btn i {
+      font-size: 1.3rem;
+      color: var(--teal);
+    }
+
+    .spec-btn:hover,
+    .spec-btn.selected {
+      border-color: var(--teal);
+      background: rgba(63, 188, 192, 0.12);
+      color: var(--white);
+    }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--teal) 0%, #29898c 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(63, 188, 192, 0.45);
+    }
+
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* ========== SUCCESS STATE ========== */
+    .success-overlay {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--teal), #29898c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .success-overlay h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .success-overlay p {
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 24px;
+    }
+
+    .reset-btn {
+      background: transparent;
+      border: 1px solid var(--teal);
+      color: var(--teal);
+      padding: 10px 28px;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .reset-btn:hover {
+      background: var(--teal);
+      color: white;
+    }
+
+    /* ========== SIDE INFO ========== */
+    .side-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Info card */
+    .info-card {
+      background: linear-gradient(145deg, rgba(6, 94, 99, 0.5), rgba(2, 42, 45, 0.8));
+      border: 1px solid rgba(63, 188, 192, 0.2);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .info-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card h3 i {
+      color: var(--teal);
+    }
+
+    /* Step list */
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .step-num {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      background: linear-gradient(135deg, var(--teal), #29898c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: white;
+    }
+
+    .step-txt strong {
+      font-size: 0.88rem;
+      color: var(--white);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .step-txt span {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Contact card */
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(63, 188, 192, 0.1);
+    }
+
+    .contact-row:last-child {
+      border: none;
+      padding-bottom: 0;
+    }
+
+    .c-icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(63, 188, 192, 0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .c-lbl {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .c-val {
+      font-size: 0.88rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* Timings */
+    .timing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(63, 188, 192, 0.1);
+      font-size: 0.85rem;
+    }
+
+    .timing-row:last-child {
+      border: none;
+    }
+
+    .timing-row span:first-child {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .timing-row span:last-child {
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .open-badge {
+      background: rgba(63, 188, 192, 0.15);
+      color: var(--teal);
+      border: 1px solid rgba(63, 188, 192, 0.3);
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ========== SECTION DIVIDER ========== */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(63, 188, 192, 0.25);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .main-wrapper {
+        grid-template-columns: 1fr;
+        padding: 40px 20px 60px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .specialty-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero-inner {
+        flex-direction: column;
+        padding: 50px 20px 40px;
+        text-align: center;
+      }
+
+      .hero-img-wrap {
+        display: none;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .form-card {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="global-navbar.css">\n  <link rel="stylesheet" href="premium-chat.css">
+</head>
+
+<body>
+
+  <!-- ============================== NAVBAR ============================== -->
+  <header class="header_container nav-h">
+    <div class="img">
+      <img id="rd-logo" src="images/rd.png" alt="MediSwift Logo">
+      <span>MediSwift</span>
+    </div>
+    <nav class="nav_menu">
+      <div class="hamburger" onclick="toggleMenu()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="mobile-logo-text">MediSwift</div>
+      <ul class="nav_link vis-h">
+        <li><a href="index.html"><i class="bi bi-house-door-fill"></i> Home</a></li>
+        <li><a href="about.html"><i class="bi bi-info-circle-fill"></i> About</a></li>
+        <li><a href="news.html"><i class="bi bi-newspaper"></i> News</a></li>
+        <li><a href="dex.html"><i class="bi bi-gear"></i> Service</a></li>
+        <li><a href="portal.html"><i class="bi bi-person"></i> Patient Portal</a></li>
+        <li><a href="Html-Files/appointment.html"><i class="bi bi-person"></i> Appointment</a></li>
+        <li><a href="#doctors"><i class="bi bi-person-circle"></i> Doctor</a></li>
+        <li><a href="#contact"><i class="bi bi-telephone"></i> Contact us</a></li>
+        <li><a href="#feedback"><i class="bi bi-star"></i> Rate Us</a></li>
+        <li><a href="log/login.html"><i class="bi bi-box-arrow-right"></i> Sign in/Sign up</a></li>
+        <a href="Html-Files/Doctor Experience.html"><button class="btn1">Find a Doctor</button></a>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="appt-hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge"><i class="bi bi-heart-pulse-fill"></i> Trusted Healthcare Platform</div>
+        <h1>Book Your <span>Doctor Appointment</span> In Minutes</h1>
+        <p>Skip the waiting room. Choose your specialist, pick a convenient slot, and confirm your visit â€” all from one
+          place.</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">50+</div>
+            <div class="stat-lbl">Specialists</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10K+</div>
+            <div class="stat-lbl">Patients Served</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">4.9â˜…</div>
+            <div class="stat-lbl">Average Rating</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-img-wrap">
+        <img src="assets/img/doc.jpg" alt="Doctor" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== MAIN ============================== -->
+  <div class="main-wrapper">
+
+    <!-- ---- BOOKING FORM ---- -->
+    <div class="form-card">
+      <h2>Book an Appointment</h2>
+      <p>Fill in your details below and we'll confirm your visit.</p>
+
+      <!-- Success -->
+      <div class="success-overlay" id="successBox">
+        <div class="success-icon"><i class="bi bi-check-lg"></i></div>
+        <h3>Appointment Confirmed! ðŸŽ‰</h3>
+        <p>We've received your booking. Our team will contact you shortly to confirm the exact time slot.</p>
+        <button class="reset-btn" onclick="resetForm()">Book Another Appointment</button>
+      </div>
+
+      <form id="appointmentForm">
+        <!-- Personal Info -->
+        <div class="section-label"><i class="bi bi-person"></i> Personal Information</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name <span>*</span></label>
+            <input type="text" id="name" placeholder="e.g. Arjun Sharma" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address <span>*</span></label>
+            <input type="email" id="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number <span>*</span></label>
+            <input type="tel" id="phone" placeholder="+91 99999 00000" required>
+          </div>
+          <div class="form-group">
+            <label>Age Group <span>*</span></label>
+            <select id="age" required>
+              <option value="" disabled selected>Select age range</option>
+              <option>Under 18</option>
+              <option>18 â€“ 30</option>
+              <option>31 â€“ 50</option>
+              <option>51 â€“ 70</option>
+              <option>71 and above</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Specialty -->
+        <div class="section-label"><i class="bi bi-capsule-pill"></i> Choose Specialty</div>
+        <div class="specialty-grid" id="specialtyGrid">
+          <div class="spec-btn" data-value="General Physician" onclick="selectSpec(this)"><i
+              class="bi bi-heart-pulse"></i>General</div>
+          <div class="spec-btn" data-value="Cardiology" onclick="selectSpec(this)"><i
+              class="bi bi-activity"></i>Cardiology</div>
+          <div class="spec-btn" data-value="Orthopedics" onclick="selectSpec(this)"><i
+              class="bi bi-bandaid"></i>Orthopedics</div>
+          <div class="spec-btn" data-value="Dermatology" onclick="selectSpec(this)"><i
+              class="bi bi-person-bounding-box"></i>Dermatology</div>
+          <div class="spec-btn" data-value="Pediatrics" onclick="selectSpec(this)"><i
+              class="bi bi-balloon-heart"></i>Pediatrics</div>
+          <div class="spec-btn" data-value="Neurology" onclick="selectSpec(this)"><i class="bi bi-cpu"></i>Neurology
+          </div>
+        </div>
+        <input type="hidden" id="specialty" required>
+
+        <!-- Booking Details -->
+        <div class="section-label"><i class="bi bi-calendar3"></i> Appointment Details</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date <span>*</span></label>
+            <input type="date" id="apptDate" required>
+          </div>
+          <div class="form-group">
+            <label>Preferred Time <span>*</span></label>
+            <select id="apptTime" required>
+              <option value="" disabled selected>Select time slot</option>
+              <option>09:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>01:00 PM</option>
+              <option>03:00 PM</option>
+              <option>04:00 PM</option>
+              <option>05:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>City / Location <span>*</span></label>
+            <select id="location" required>
+              <option value="" disabled selected>Select city</option>
+              <option>Hyderabad</option>
+              <option>Ahmedabad</option>
+              <option>Vadodara</option>
+              <option>Bangalore</option>
+              <option>Mumbai</option>
+              <option>Delhi</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Visit Type</label>
+            <select id="visitType">
+              <option value="" disabled selected>Select type</option>
+              <option>In-Person</option>
+              <option>Video Consultation</option>
+              <option>Home Visit</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Additional Notes (Optional)</label>
+          <textarea id="notes" placeholder="Describe your symptoms or any relevant medical history..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <i class="bi bi-calendar-check-fill"></i> Confirm Appointment
+        </button>
+      </form>
+    </div>
+
+    <!-- ---- SIDE INFO ---- -->
+    <div class="side-info">
+
+      <!-- How it works -->
+      <div class="info-card">
+        <h3><i class="bi bi-list-ol"></i> How It Works</h3>
+        <ul class="steps-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-txt">
+              <strong>Fill the Form</strong>
+              <span>Enter your personal details and choose your specialty.</span>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-txt">
+              <strong>Pick a Slot</strong>
+              <span>Select a date and time that works best for you.</span>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-txt">
+              <strong>Get Confirmed</strong>
+              <span>Receive immediate confirmation with all your booking details.</span>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-txt">
+              <strong>Visit the Clinic</strong>
+              <span>Show up at your scheduled time and let us take care of the rest.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="info-card">
+        <h3><i class="bi bi-telephone-fill"></i> Get In Touch</h3>
+        <div class="contact-row">
+          <div class="c-icon"><i class="bi bi-telephone"></i></div>
+          <div>
+            <div class="c-lbl">Helpline</div>
+            <div class="c-val">+91 99099 12345</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="c-icon"><i class="bi bi-envelope"></i></div>
+          <div>
+            <div class="c-lbl">Email</div>
+            <div class="c-val">info@MediSwift.com</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="c-icon"><i class="bi bi-geo-alt"></i></div>
+          <div>
+            <div class="c-lbl">Location</div>
+            <div class="c-val">Multiple cities across India</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timings -->
+      <div class="info-card">
+        <h3><i class="bi bi-clock-fill"></i> Clinic Hours <span class="open-badge">OPEN</span></h3>
+        <div class="timing-row"><span>Monday â€“ Friday</span><span>9:00 AM â€“ 6:00 PM</span></div>
+        <div class="timing-row"><span>Saturday</span><span>10:00 AM â€“ 4:00 PM</span></div>
+        <div class="timing-row"><span>Sunday</span><span>Emergency Only</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Set min date to today
+    const dateInput = document.getElementById('apptDate');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+
+    // Specialty selection
+    function selectSpec(el) {
+      document.querySelectorAll('.spec-btn').forEach(b => b.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('specialty').value = el.dataset.value;
+    }
+
+    // Hamburger toggle
+    function toggleMenu() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('active');
+    }
+
+    // Form submit
+    document.getElementById('appointmentForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Validate specialty
+      if (!document.getElementById('specialty').value) {
+        alert('Please select a specialty.');
+        return;
+      }
+
+      const btn = document.getElementById('submitBtn');
+      btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Booking...';
+      btn.disabled = true;
+
+      // Simulate API call
+      setTimeout(() => {
+        this.style.display = 'none';
+        document.getElementById('successBox').style.display = 'block';
+      }, 1200);
+    });
+
+    function resetForm() {
+      document.getElementById('appointmentForm').reset();
+      document.getElementById('appointmentForm').style.display = 'block';
+      document.getElementById('successBox').style.display = 'none';
+      document.querySelectorAll('.spec-btn').forEach(b => b.classList.remove('selected'));
+      document.getElementById('specialty').value = '';
+      const btn = document.getElementById('submitBtn');
+      btn.innerHTML = '<i class="bi bi-calendar-check-fill"></i> Confirm Appointment';
+      btn.disabled = false;
+    }
+  </script>
+
+  <script src="premium-chat.js"></script>
+</body>
+
+</html>

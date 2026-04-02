@@ -1,0 +1,172 @@
+
+/* --- PREMIUM GOOGLE TRANSLATE STYLES --- */
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.9); }
+}
+
+/* Floating Translate Button (Modern Floating UI) */
+#translateButton {
+    position: fixed !important;
+    bottom: 30px !important;
+    left: 40px !important; /* Proper bottom-left position */
+    z-index: 10000 !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(63, 188, 192, 0.4) !important;
+    background: rgba(15, 30, 31, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    color: #3fbcc0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 2px 5px rgba(255,255,255,0.05) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    font-size: 0 !important; /* Hide text, use icon */
+    padding: 0 !important;
+}
+
+#translateButton:hover {
+    transform: translateY(-8px) rotate(15deg) !important;
+    background: rgba(63, 188, 192, 0.25) !important;
+    border-color: #3fbcc0 !important;
+    box-shadow: 0 15px 50px rgba(63, 188, 192, 0.4) !important;
+}
+
+#translateButton::before {
+    content: "\f1ab" !important; /* Globe icon */
+    font-family: "Font Awesome 6 Free" !important;
+    font-size: 26px !important;
+    font-weight: 900 !important;
+}
+
+/* Tooltip on hover */
+#translateButton:hover::after {
+    content: "TRANSLATE" !important;
+    position: absolute !important;
+    left: 80px !important;
+    background: rgba(63, 188, 192, 0.9) !important;
+    color: #000 !important;
+    padding: 6px 15px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    pointer-events: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+}
+
+/* The popup modal backdrop */
+#translatePopup.popup {
+    display: none;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 11000 !important;
+    background: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Popup content - Glassmorphic */
+#translatePopup .popup-content {
+    background: rgba(15, 30, 31, 0.9) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    padding: 45px 35px 35px !important;
+    border: 1px solid rgba(63, 188, 192, 0.3) !important;
+    width: 380px !important;
+    border-radius: 30px !important;
+    position: relative !important;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9) !important;
+    text-align: center !important;
+}
+
+/* Section Title */
+#translatePopup .popup-content::before {
+    content: "Select Language" !important;
+    display: block !important;
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    color: #fff !important;
+    margin-bottom: 25px !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Close button - Styled */
+#translatePopup .close {
+    position: absolute !important;
+    top: 25px !important;
+    right: 25px !important;
+    color: rgba(63, 188, 192, 0.5) !important;
+    font-size: 28px !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    line-height: 1 !important;
+}
+
+#translatePopup .close:hover {
+    color: #ff5050 !important;
+    transform: rotate(90deg) scale(1.1) !important;
+}
+
+/* Language Dropdown Customization */
+#google_translate_element select {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(63, 188, 192, 0.3) !important;
+    color: #fff !important;
+    padding: 14px 20px !important;
+    font-size: 15px !important;
+    border-radius: 18px !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    outline: none !important;
+    font-family: 'Poppins', sans-serif !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5) !important;
+}
+
+#google_translate_element select:focus {
+    border-color: #3fbcc0 !important;
+    background: rgba(63, 188, 192, 0.1) !important;
+}
+
+/* HIDE GOOGLE AUTOMATIC UI ATTRIBUTES AGGRESSIVELY */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+body > .skiptranslate,
+.goog-te-banner {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+body {
+    top: 0px !important;
+    position: static !important;
+}
+
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    font-size: 0 !important;
+    height: auto !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+    margin: 0 !important;
+}
